@@ -25,7 +25,8 @@ int main(){
 
     srand(time(NULL));
 
-    while(1){
+    while(1)
+    {
         start(); //인트로
         randomPlay(); //실제 게임
 
@@ -33,7 +34,8 @@ int main(){
         scanf("%c",&gamePlay);
 
         //N을 눌렀을 경우에만 게임종료
-        if(gamePlay == 'N' || gamePlay == 'n'){
+        if(gamePlay == 'N' || gamePlay == 'n')
+        {
             break;
         }
         count = 1;
@@ -42,7 +44,8 @@ int main(){
     
 }//main
 
-void start(void){
+void start(void)
+{
     printf("\n[안녕하세요. 길강산 게임에 오신것을 환영합니다.]\n\n");
     printf("길, 강, 산 세가지 경로가 있고, 당신은 길을 6번 가야 이길 수 있습니다.\n\n");
     printf("몬스터 공격력을 입력해주세요: ");
@@ -65,7 +68,8 @@ void start(void){
     system("clear");
 }
 
-void randomPlay(void){
+void randomPlay(void)
+{
     //길을 6번가면 
     for(int roadCount = 0; roadCount < 6; count +=1){
         
@@ -77,19 +81,22 @@ void randomPlay(void){
         trashMemory = getchar();//아무값 입력
         
         randomPath = (rand()%10)+1;//1~10 숫자 랜덤 대입
-        if(randomPath <= 3){
+        if(randomPath <= 3)
+        {
             roadCount += 1;
             printf("다행이다! 내가 찾던 길이야!!\n");
             printf("미션 진행도 [%d/6]",roadCount);
             trashMemory = getchar();
             system("clear");
         }//if 길
-        else if(randomPath > 3 && randomPath <= 5){
+        else if(randomPath > 3 && randomPath <= 5)
+        {
             printf("아쉽다.. 강이야. 물고기먹자\n");
             trashMemory = getchar();
             system("clear");
         }//else if 강
-        else{
+        else
+        {
             printf("큰일났다. 여긴 산이야..\n");
             printf("몬스터가 나올지도 몰라 ㅠㅠ\n");
 
@@ -100,12 +107,14 @@ void randomPlay(void){
             printf("몬스터를 만났습니다. 전투가 시작됩니다.\n");
             printf("몬스터 공격력 : %d, 내 방어력 :%d\n\n",monsterOffence, playerDeffence);
 
-            if(randomFight <= 4){
+            if(randomFight <= 4)
+            {
                 printf("몬스터에게 공격당했습니다..");
                 maxHp -= finalDamage;
                 printf("데미지를 %d입습니다. 현재체력 [%d/50]\n",finalDamage, maxHp);
 
-                if(maxHp <= 0){
+                if(maxHp <= 0)
+                {
                     printf("[플레이어가 사망했습니다. 아무를 눌러 게임을 다시 시작하세요.]\n\n");
                     roadCount = 10;
                     trashMemory = getchar();
@@ -115,7 +124,8 @@ void randomPlay(void){
                 system("clear");
 
             }//if 몬스터 공격
-            else if(randomFight > 4){
+            else if(randomFight > 4)
+            {
                 printf("몬스터를 회피했습니다. 회피보너스로 체력을 %d회복합니다.\n",playerHeal);
                 maxHp += playerHeal;
                 if(maxHp >= 50){
